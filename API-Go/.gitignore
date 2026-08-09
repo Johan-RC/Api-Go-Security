@@ -1,0 +1,22 @@
+# Binarios
+*.exe
+*.out
+*.test
+
+# Entorno
+.env
+.env.develop
+.env.main
+.env.qa
+.env.staging
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Go
+vendor/

@@ -1,0 +1,249 @@
+time=2026-08-07T17:15:52.567-05:00 level=INFO msg="conexión a la base de datos establecida"
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /api/v1/health            --> main.setupRouter.func1 (4 handlers)
+[GIN-debug] POST   /api/v1/auth/login        --> github.com/jesus-ariel/api-jeussairel/auth.(*Handler).Login-fm (4 handlers)
+[GIN-debug] POST   /api/v1/auth/refresh      --> github.com/jesus-ariel/api-jeussairel/auth.(*Handler).Refresh-fm (4 handlers)
+[GIN-debug] POST   /api/v1/auth/logout       --> github.com/jesus-ariel/api-jeussairel/auth.(*Handler).Logout-fm (4 handlers)
+[GIN-debug] POST   /api/v1/auth/forgot-password --> github.com/jesus-ariel/api-jeussairel/auth.(*Handler).ForgotPassword-fm (4 handlers)
+[GIN-debug] POST   /api/v1/auth/reset-password --> github.com/jesus-ariel/api-jeussairel/auth.(*Handler).ResetPassword-fm (4 handlers)
+[GIN-debug] GET    /api/v1/users             --> github.com/jesus-ariel/api-jeussairel/user.(*Handler).List-fm (6 handlers)
+[GIN-debug] POST   /api/v1/users             --> github.com/jesus-ariel/api-jeussairel/user.(*Handler).Create-fm (6 handlers)
+[GIN-debug] GET    /api/v1/users/:id         --> github.com/jesus-ariel/api-jeussairel/user.(*Handler).GetById-fm (6 handlers)
+[GIN-debug] PUT    /api/v1/users/:id         --> github.com/jesus-ariel/api-jeussairel/user.(*Handler).Update-fm (6 handlers)
+[GIN-debug] DELETE /api/v1/users/:id         --> github.com/jesus-ariel/api-jeussairel/user.(*Handler).Delete-fm (6 handlers)
+[GIN-debug] GET    /api/v1/roles             --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).List-fm (6 handlers)
+[GIN-debug] POST   /api/v1/roles             --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).Create-fm (6 handlers)
+[GIN-debug] GET    /api/v1/roles/:id         --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).GetById-fm (6 handlers)
+[GIN-debug] PUT    /api/v1/roles/:id         --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).Update-fm (6 handlers)
+[GIN-debug] DELETE /api/v1/roles/:id         --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).Delete-fm (6 handlers)
+[GIN-debug] GET    /api/v1/roles/:id/features --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).ListFeatures-fm (6 handlers)
+[GIN-debug] PUT    /api/v1/roles/:id/features --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).AssignFeatures-fm (6 handlers)
+[GIN-debug] POST   /api/v1/users/:id/roles   --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).AssignRoleToUser-fm (6 handlers)
+[GIN-debug] GET    /api/v1/users/:id/roles   --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).ListRolesByUser-fm (6 handlers)
+[GIN-debug] DELETE /api/v1/users/:id/roles/:userRoleId --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).RemoveRoleFromUser-fm (6 handlers)
+[GIN-debug] POST   /api/v1/scope-overrides   --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).CreateScopeOverride-fm (6 handlers)
+[GIN-debug] GET    /api/v1/scope-overrides/users/:id --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).ListScopeOverrides-fm (6 handlers)
+[GIN-debug] DELETE /api/v1/scope-overrides/:id --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).RemoveScopeOverride-fm (6 handlers)
+[GIN-debug] GET    /api/v1/modules           --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).ListModules-fm (6 handlers)
+[GIN-debug] POST   /api/v1/modules           --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).CreateModule-fm (6 handlers)
+[GIN-debug] GET    /api/v1/modules/:id       --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).GetModuleById-fm (6 handlers)
+[GIN-debug] PUT    /api/v1/modules/:id       --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).UpdateModule-fm (6 handlers)
+[GIN-debug] DELETE /api/v1/modules/:id       --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).DeleteModule-fm (6 handlers)
+[GIN-debug] GET    /api/v1/modules/:id/features --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).ListFeaturesByModule-fm (6 handlers)
+[GIN-debug] GET    /api/v1/features          --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).ListFeatures-fm (6 handlers)
+[GIN-debug] POST   /api/v1/features          --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).CreateFeature-fm (6 handlers)
+[GIN-debug] GET    /api/v1/features/:id      --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).GetFeatureById-fm (6 handlers)
+[GIN-debug] PUT    /api/v1/features/:id      --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).UpdateFeature-fm (6 handlers)
+[GIN-debug] DELETE /api/v1/features/:id      --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).DeleteFeature-fm (6 handlers)
+[GIN-debug] GET    /api/v1/sessions/active   --> github.com/jesus-ariel/api-jeussairel/session.(*Handler).ListActiveByUser-fm (5 handlers)
+[GIN-debug] DELETE /api/v1/sessions/:id      --> github.com/jesus-ariel/api-jeussairel/session.(*Handler).RevokeById-fm (5 handlers)
+[GIN-debug] GET    /api/v1/audit/logins      --> github.com/jesus-ariel/api-jeussairel/audit.(*Handler).List-fm (6 handlers)
+[GIN-debug] GET    /api/v1/audit/logins/users/:userId --> github.com/jesus-ariel/api-jeussairel/audit.(*Handler).ListByUser-fm (6 handlers)
+time=2026-08-07T17:15:52.751-05:00 level=INFO msg="servidor iniciado" port=8080 env=develop
+time=2026-08-07T17:16:05.153-05:00 level=INFO msg=request method=GET path=/api/v1/health status=200 latency=0s client_ip=::1 user_agent=curl/8.21.0
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/user/repository.go:46
+[0m[33m[14.698ms] [34;1m[rows:1][0m SELECT * FROM "identity"."user" WHERE email = 'admin@sena.edu.co' ORDER BY "user"."id" LIMIT 1
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/user/repository.go:101
+[0m[33m[10.460ms] [34;1m[rows:1][0m UPDATE "identity"."user" SET "failed_attempts"=0,"updated_at"='2026-08-07 17:16:05.318' WHERE id = 'c0000000-0000-0000-0000-000000000001'
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/user/repository.go:107
+[0m[33m[7.946ms] [34;1m[rows:1][0m UPDATE "identity"."user" SET "locked_until"=NULL,"updated_at"='2026-08-07 17:16:05.328' WHERE id = 'c0000000-0000-0000-0000-000000000001'
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/user/repository.go:89
+[0m[33m[7.588ms] [34;1m[rows:1][0m UPDATE "identity"."user" SET "last_login_at"='2026-08-07 17:16:05.316',"updated_at"='2026-08-07 17:16:05.336' WHERE id = 'c0000000-0000-0000-0000-000000000001'
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/session/repository.go:23
+[0m[33m[8.969ms] [34;1m[rows:1][0m INSERT INTO "session"."refresh_token" ("id","user_id","token_hash","device_hint","ip_address","is_revoked","revoked_at","expires_at") VALUES ('5174dd33-515f-4e79-b314-1cf5456c682e','c0000000-0000-0000-0000-000000000001','1ed72f7c96e9b2151762303c588f77a91d7258cc5d0b511a173b4261eceb9ba1',NULL,'::1',false,NULL,'2026-08-14 17:16:05.344') RETURNING "expires_at","created_at"
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/audit/repository.go:21
+[0m[33m[11.265ms] [34;1m[rows:1][0m INSERT INTO "identity_audit"."audit_login" ("id","user_id","email_attempted","outcome","ip_address","user_agent") VALUES ('e45001f5-5f9c-475c-8400-f9319878a5f9','c0000000-0000-0000-0000-000000000001','admin@sena.edu.co','SUCCESS','::1','curl/8.21.0') RETURNING "attempted_at"
+time=2026-08-07T17:16:05.365-05:00 level=INFO msg=request method=POST path=/api/v1/auth/login status=200 latency=150.3706ms client_ip=::1 user_agent=curl/8.21.0
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/session/repository.go:29
+[0m[33m[2.663ms] [34;1m[rows:1][0m SELECT * FROM "session"."refresh_token" WHERE token_hash = '1ed72f7c96e9b2151762303c588f77a91d7258cc5d0b511a173b4261eceb9ba1' ORDER BY "refresh_token"."id" LIMIT 1
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/user/repository.go:37
+[0m[33m[2.422ms] [34;1m[rows:1][0m SELECT * FROM "identity"."user" WHERE id = 'c0000000-0000-0000-0000-000000000001' ORDER BY "user"."id" LIMIT 1
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/session/repository.go:49
+[0m[33m[8.981ms] [34;1m[rows:1][0m UPDATE "session"."refresh_token" SET "is_revoked"=true,"revoked_at"='2026-08-07 17:16:05.526' WHERE id = '5174dd33-515f-4e79-b314-1cf5456c682e'
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/session/repository.go:23
+[0m[33m[10.013ms] [34;1m[rows:1][0m INSERT INTO "session"."refresh_token" ("id","user_id","token_hash","device_hint","ip_address","is_revoked","revoked_at","expires_at") VALUES ('5aa13313-211a-44ca-b758-07b3592fdafe','c0000000-0000-0000-0000-000000000001','461cd808be3abf627c649b3d226fa15f073012bd887b3abc7090ce0db3c6e898',NULL,'::1',false,NULL,'2026-08-14 17:16:05.536') RETURNING "expires_at","created_at"
+time=2026-08-07T17:16:05.547-05:00 level=INFO msg=request method=POST path=/api/v1/auth/refresh status=200 latency=29.4918ms client_ip=::1 user_agent=curl/8.21.0
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/middleware/authorization.go:40
+[0m[33m[26.864ms] [34;1m[rows:-][0m SELECT id FROM rbac_catalog.feature
+			 WHERE code = 'IDENTITY_USER_VIEW' AND is_active = true LIMIT 1
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/middleware/authorization.go:60
+[0m[33m[4.522ms] [34;1m[rows:-][0m SELECT CASE
+				WHEN COUNT(*) FILTER (WHERE is_allowed = false) > 0 THEN 'denied'
+				WHEN COUNT(*) FILTER (WHERE is_allowed = true) > 0 THEN 'granted'
+				ELSE 'none'
+			 END
+			 FROM rbac.user_scope_override
+			 WHERE user_id = 'c0000000-0000-0000-0000-000000000001' AND feature_id = '5e5b3aaa-8c5a-47d1-8530-80e584680a97'
+			   AND (expires_at IS NULL OR expires_at > now())
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/middleware/authorization.go:87
+[0m[33m[27.956ms] [34;1m[rows:-][0m SELECT f.action_level
+			 FROM rbac.user_role AS ur
+			 JOIN rbac.role_feature AS rf ON rf.role_id = ur.role_id
+			 JOIN rbac_catalog.feature AS f ON f.id = rf.feature_id
+			 WHERE ur.user_id = 'c0000000-0000-0000-0000-000000000001' AND f.id = '5e5b3aaa-8c5a-47d1-8530-80e584680a97'
+			   AND (ur.expires_at IS NULL OR ur.expires_at > now())
+			 ORDER BY (CASE f.action_level
+				WHEN 'APPROVE' THEN 5 WHEN 'PUBLISH' THEN 4
+				WHEN 'DELETE' THEN 3 WHEN 'WRITE' THEN 2 ELSE 1 END) DESC
+			 LIMIT 1
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/user/repository.go:58
+[0m[33m[2.809ms] [34;1m[rows:1][0m SELECT * FROM "identity"."user" ORDER BY last_name ASC, first_name ASC LIMIT 20
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/user/repository.go:67
+[0m[33m[2.141ms] [34;1m[rows:1][0m SELECT count(*) FROM "identity"."user"
+time=2026-08-07T17:16:05.775-05:00 level=INFO msg=request method=GET path=/api/v1/users status=200 latency=120.195ms client_ip=::1 user_agent=curl/8.21.0 user_id=c0000000-0000-0000-0000-000000000001
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/middleware/authorization.go:40
+[0m[33m[1.151ms] [34;1m[rows:-][0m SELECT id FROM rbac_catalog.feature
+			 WHERE code = 'IDENTITY_ROLE_VIEW' AND is_active = true LIMIT 1
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/middleware/authorization.go:60
+[0m[33m[1.522ms] [34;1m[rows:-][0m SELECT CASE
+				WHEN COUNT(*) FILTER (WHERE is_allowed = false) > 0 THEN 'denied'
+				WHEN COUNT(*) FILTER (WHERE is_allowed = true) > 0 THEN 'granted'
+				ELSE 'none'
+			 END
+			 FROM rbac.user_scope_override
+			 WHERE user_id = 'c0000000-0000-0000-0000-000000000001' AND feature_id = '717ba7b7-21df-401f-9be5-4a38f6980715'
+			   AND (expires_at IS NULL OR expires_at > now())
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/middleware/authorization.go:87
+[0m[33m[2.718ms] [34;1m[rows:-][0m SELECT f.action_level
+			 FROM rbac.user_role AS ur
+			 JOIN rbac.role_feature AS rf ON rf.role_id = ur.role_id
+			 JOIN rbac_catalog.feature AS f ON f.id = rf.feature_id
+			 WHERE ur.user_id = 'c0000000-0000-0000-0000-000000000001' AND f.id = '717ba7b7-21df-401f-9be5-4a38f6980715'
+			   AND (ur.expires_at IS NULL OR ur.expires_at > now())
+			 ORDER BY (CASE f.action_level
+				WHEN 'APPROVE' THEN 5 WHEN 'PUBLISH' THEN 4
+				WHEN 'DELETE' THEN 3 WHEN 'WRITE' THEN 2 ELSE 1 END) DESC
+			 LIMIT 1
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/role/repository.go:58
+[0m[33m[7.643ms] [34;1m[rows:7][0m SELECT * FROM "rbac"."role" ORDER BY name ASC LIMIT 20
+
+2026/08/07 17:16:05 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/role/repository.go:67
+[0m[33m[3.374ms] [34;1m[rows:1][0m SELECT count(*) FROM "rbac"."role"
+time=2026-08-07T17:16:05.986-05:00 level=INFO msg=request method=GET path=/api/v1/roles status=200 latency=26.3401ms client_ip=::1 user_agent=curl/8.21.0 user_id=c0000000-0000-0000-0000-000000000001
+
+2026/08/07 17:16:06 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/middleware/authorization.go:40
+[0m[33m[5.323ms] [34;1m[rows:-][0m SELECT id FROM rbac_catalog.feature
+			 WHERE code = 'IDENTITY_ROLE_MANAGE' AND is_active = true LIMIT 1
+
+2026/08/07 17:16:06 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/middleware/authorization.go:60
+[0m[33m[1.563ms] [34;1m[rows:-][0m SELECT CASE
+				WHEN COUNT(*) FILTER (WHERE is_allowed = false) > 0 THEN 'denied'
+				WHEN COUNT(*) FILTER (WHERE is_allowed = true) > 0 THEN 'granted'
+				ELSE 'none'
+			 END
+			 FROM rbac.user_scope_override
+			 WHERE user_id = 'c0000000-0000-0000-0000-000000000001' AND feature_id = 'c6745e6c-aa52-489b-b29c-09682ebaeb25'
+			   AND (expires_at IS NULL OR expires_at > now())
+
+2026/08/07 17:16:06 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/middleware/authorization.go:87
+[0m[33m[3.100ms] [34;1m[rows:-][0m SELECT f.action_level
+			 FROM rbac.user_role AS ur
+			 JOIN rbac.role_feature AS rf ON rf.role_id = ur.role_id
+			 JOIN rbac_catalog.feature AS f ON f.id = rf.feature_id
+			 WHERE ur.user_id = 'c0000000-0000-0000-0000-000000000001' AND f.id = 'c6745e6c-aa52-489b-b29c-09682ebaeb25'
+			   AND (ur.expires_at IS NULL OR ur.expires_at > now())
+			 ORDER BY (CASE f.action_level
+				WHEN 'APPROVE' THEN 5 WHEN 'PUBLISH' THEN 4
+				WHEN 'DELETE' THEN 3 WHEN 'WRITE' THEN 2 ELSE 1 END) DESC
+			 LIMIT 1
+
+2026/08/07 17:16:06 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/feature/repository.go:58
+[0m[33m[6.378ms] [34;1m[rows:10][0m SELECT * FROM "rbac_catalog"."module" ORDER BY display_order ASC LIMIT 20
+
+2026/08/07 17:16:06 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/feature/repository.go:67
+[0m[33m[8.187ms] [34;1m[rows:1][0m SELECT count(*) FROM "rbac_catalog"."module"
+time=2026-08-07T17:16:06.085-05:00 level=INFO msg=request method=GET path=/api/v1/modules status=200 latency=40.2389ms client_ip=::1 user_agent=curl/8.21.0 user_id=c0000000-0000-0000-0000-000000000001
+
+2026/08/07 17:16:06 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/middleware/authorization.go:40
+[0m[33m[0.513ms] [34;1m[rows:-][0m SELECT id FROM rbac_catalog.feature
+			 WHERE code = 'IDENTITY_ROLE_MANAGE' AND is_active = true LIMIT 1
+
+2026/08/07 17:16:06 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/middleware/authorization.go:60
+[0m[33m[1.525ms] [34;1m[rows:-][0m SELECT CASE
+				WHEN COUNT(*) FILTER (WHERE is_allowed = false) > 0 THEN 'denied'
+				WHEN COUNT(*) FILTER (WHERE is_allowed = true) > 0 THEN 'granted'
+				ELSE 'none'
+			 END
+			 FROM rbac.user_scope_override
+			 WHERE user_id = 'c0000000-0000-0000-0000-000000000001' AND feature_id = 'c6745e6c-aa52-489b-b29c-09682ebaeb25'
+			   AND (expires_at IS NULL OR expires_at > now())
+
+2026/08/07 17:16:06 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/middleware/authorization.go:87
+[0m[33m[3.891ms] [34;1m[rows:-][0m SELECT f.action_level
+			 FROM rbac.user_role AS ur
+			 JOIN rbac.role_feature AS rf ON rf.role_id = ur.role_id
+			 JOIN rbac_catalog.feature AS f ON f.id = rf.feature_id
+			 WHERE ur.user_id = 'c0000000-0000-0000-0000-000000000001' AND f.id = 'c6745e6c-aa52-489b-b29c-09682ebaeb25'
+			   AND (ur.expires_at IS NULL OR ur.expires_at > now())
+			 ORDER BY (CASE f.action_level
+				WHEN 'APPROVE' THEN 5 WHEN 'PUBLISH' THEN 4
+				WHEN 'DELETE' THEN 3 WHEN 'WRITE' THEN 2 ELSE 1 END) DESC
+			 LIMIT 1
+
+2026/08/07 17:16:06 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/feature/repository.go:121
+[0m[33m[2.048ms] [34;1m[rows:20][0m SELECT * FROM "rbac_catalog"."feature" ORDER BY name ASC LIMIT 20
+
+2026/08/07 17:16:06 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/feature/repository.go:139
+[0m[33m[1.899ms] [34;1m[rows:1][0m SELECT count(*) FROM "rbac_catalog"."feature"
+time=2026-08-07T17:16:06.147-05:00 level=INFO msg=request method=GET path=/api/v1/features status=200 latency=13.9491ms client_ip=::1 user_agent=curl/8.21.0 user_id=c0000000-0000-0000-0000-000000000001
+
+2026/08/07 17:16:06 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/middleware/authorization.go:40
+[0m[33m[0.514ms] [34;1m[rows:-][0m SELECT id FROM rbac_catalog.feature
+			 WHERE code = 'AUDIT_LOG_VIEW' AND is_active = true LIMIT 1
+
+2026/08/07 17:16:06 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/middleware/authorization.go:60
+[0m[33m[1.720ms] [34;1m[rows:-][0m SELECT CASE
+				WHEN COUNT(*) FILTER (WHERE is_allowed = false) > 0 THEN 'denied'
+				WHEN COUNT(*) FILTER (WHERE is_allowed = true) > 0 THEN 'granted'
+				ELSE 'none'
+			 END
+			 FROM rbac.user_scope_override
+			 WHERE user_id = 'c0000000-0000-0000-0000-000000000001' AND feature_id = '4fc86abc-ab74-4254-a307-454998bdb8ac'
+			   AND (expires_at IS NULL OR expires_at > now())
+
+2026/08/07 17:16:06 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/middleware/authorization.go:87
+[0m[33m[1.547ms] [34;1m[rows:-][0m SELECT f.action_level
+			 FROM rbac.user_role AS ur
+			 JOIN rbac.role_feature AS rf ON rf.role_id = ur.role_id
+			 JOIN rbac_catalog.feature AS f ON f.id = rf.feature_id
+			 WHERE ur.user_id = 'c0000000-0000-0000-0000-000000000001' AND f.id = '4fc86abc-ab74-4254-a307-454998bdb8ac'
+			   AND (ur.expires_at IS NULL OR ur.expires_at > now())
+			 ORDER BY (CASE f.action_level
+				WHEN 'APPROVE' THEN 5 WHEN 'PUBLISH' THEN 4
+				WHEN 'DELETE' THEN 3 WHEN 'WRITE' THEN 2 ELSE 1 END) DESC
+			 LIMIT 1
+
+2026/08/07 17:16:06 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/audit/repository.go:51
+[0m[33m[7.941ms] [34;1m[rows:10][0m SELECT * FROM "identity_audit"."audit_login" ORDER BY attempted_at DESC LIMIT 20
+
+2026/08/07 17:16:06 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/audit/repository.go:60
+[0m[33m[1.595ms] [34;1m[rows:1][0m SELECT count(*) FROM "identity_audit"."audit_login"
+time=2026-08-07T17:16:06.212-05:00 level=INFO msg=request method=GET path=/api/v1/audit/logins status=200 latency=17.3242ms client_ip=::1 user_agent=curl/8.21.0 user_id=c0000000-0000-0000-0000-000000000001
+
+2026/08/07 17:16:06 [32mC:/Users/sampf/OneDrive/Desktop/Jesus-Ariel/api-jeussairel/API-Go/session/repository.go:40
+[0m[33m[7.638ms] [34;1m[rows:10][0m SELECT * FROM "session"."refresh_token" WHERE user_id = 'c0000000-0000-0000-0000-000000000001' AND is_revoked = false AND expires_at > '2026-08-07 17:16:06.302'
+time=2026-08-07T17:16:06.310-05:00 level=INFO msg=request method=GET path=/api/v1/sessions/active status=200 latency=8.2738ms client_ip=::1 user_agent=curl/8.21.0 user_id=c0000000-0000-0000-0000-000000000001
+time=2026-08-07T17:16:06.352-05:00 level=WARN msg=request method=GET path=/api/v1/nope status=404 latency=0s client_ip=::1 user_agent=curl/8.21.0
+time=2026-08-07T17:16:06.394-05:00 level=WARN msg=request method=GET path=/api/v1/users status=401 latency=0s client_ip=::1 user_agent=curl/8.21.0

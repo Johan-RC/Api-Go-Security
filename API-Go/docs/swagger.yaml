@@ -1,0 +1,1588 @@
+basePath: /api/v1
+definitions:
+  auth.ForgotPasswordRequest:
+    properties:
+      email:
+        type: string
+    required:
+    - email
+    type: object
+  auth.LoginRequest:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  auth.LogoutRequest:
+    properties:
+      refresh_token:
+        type: string
+    required:
+    - refresh_token
+    type: object
+  auth.RefreshRequest:
+    properties:
+      refresh_token:
+        type: string
+    required:
+    - refresh_token
+    type: object
+  auth.ResetPasswordRequest:
+    properties:
+      new_password:
+        minLength: 8
+        type: string
+      token:
+        type: string
+    required:
+    - new_password
+    - token
+    type: object
+  auth.TokenResponse:
+    properties:
+      access_token:
+        type: string
+      refresh_token:
+        type: string
+    type: object
+  feature.CreateFeatureRequest:
+    properties:
+      action_level:
+        enum:
+        - READ
+        - WRITE
+        - DELETE
+        - PUBLISH
+        - APPROVE
+        type: string
+      code:
+        maxLength: 60
+        type: string
+      description:
+        type: string
+      module_id:
+        type: string
+      name:
+        maxLength: 120
+        type: string
+    required:
+    - action_level
+    - code
+    - module_id
+    - name
+    type: object
+  feature.CreateModuleRequest:
+    properties:
+      code:
+        maxLength: 30
+        type: string
+      description:
+        type: string
+      display_order:
+        type: integer
+      icon_key:
+        type: string
+      name:
+        maxLength: 100
+        type: string
+    required:
+    - code
+    - name
+    type: object
+  feature.FeatureResponse:
+    properties:
+      action_level:
+        type: string
+      code:
+        type: string
+      id:
+        type: string
+      is_active:
+        type: boolean
+      module_id:
+        type: string
+      name:
+        type: string
+    type: object
+  feature.ListFeaturesResponse:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/feature.FeatureResponse'
+        type: array
+      page:
+        type: integer
+      total:
+        type: integer
+    type: object
+  feature.ListModulesResponse:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/feature.ModuleResponse'
+        type: array
+      page:
+        type: integer
+      total:
+        type: integer
+    type: object
+  feature.ModuleResponse:
+    properties:
+      code:
+        type: string
+      display_order:
+        type: integer
+      id:
+        type: string
+      is_active:
+        type: boolean
+      name:
+        type: string
+    type: object
+  feature.UpdateFeatureRequest:
+    properties:
+      action_level:
+        enum:
+        - READ
+        - WRITE
+        - DELETE
+        - PUBLISH
+        - APPROVE
+        type: string
+      description:
+        type: string
+      is_active:
+        type: boolean
+      name:
+        type: string
+    type: object
+  feature.UpdateModuleRequest:
+    properties:
+      description:
+        type: string
+      display_order:
+        type: integer
+      icon_key:
+        type: string
+      is_active:
+        type: boolean
+      name:
+        type: string
+    type: object
+  response.Body:
+    properties:
+      data: {}
+      error: {}
+      message:
+        type: string
+      success:
+        type: boolean
+    type: object
+  role.AssignFeaturesRequest:
+    properties:
+      features:
+        items:
+          $ref: '#/definitions/role.FeatureAssignment'
+        type: array
+    required:
+    - features
+    type: object
+  role.AssignRoleRequest:
+    properties:
+      role_id:
+        type: string
+    required:
+    - role_id
+    type: object
+  role.CreateRoleRequest:
+    properties:
+      description:
+        type: string
+      display_name:
+        maxLength: 100
+        type: string
+      name:
+        maxLength: 50
+        type: string
+    required:
+    - display_name
+    - name
+    type: object
+  role.CreateScopeOverrideRequest:
+    properties:
+      expires_at:
+        type: string
+      feature_id:
+        type: string
+      granted_by:
+        type: string
+      is_allowed:
+        type: boolean
+      reason:
+        type: string
+      scope_type:
+        enum:
+        - GLOBAL
+        - TRAINING_CENTER
+        - AREA
+        - OWN_FICHAS
+        - OWN_SCHEDULE
+        - OWN_PROFILE
+        - OWN_FICHA_AS_LEARNER
+        type: string
+      user_id:
+        type: string
+    required:
+    - feature_id
+    - granted_by
+    - reason
+    - scope_type
+    - user_id
+    type: object
+  role.FeatureAssignment:
+    properties:
+      feature_id:
+        type: string
+      scope_type:
+        enum:
+        - GLOBAL
+        - TRAINING_CENTER
+        - AREA
+        - OWN_FICHAS
+        - OWN_SCHEDULE
+        - OWN_PROFILE
+        - OWN_FICHA_AS_LEARNER
+        type: string
+    required:
+    - feature_id
+    - scope_type
+    type: object
+  role.ListFeaturesResponse:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/role.FeatureAssignment'
+        type: array
+    type: object
+  role.ListResponse:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/role.RoleResponse'
+        type: array
+      page:
+        type: integer
+      total:
+        type: integer
+    type: object
+  role.RoleResponse:
+    properties:
+      description:
+        type: string
+      display_name:
+        type: string
+      id:
+        type: string
+      is_system_role:
+        type: boolean
+      name:
+        type: string
+    type: object
+  role.ScopeOverrideResponse:
+    properties:
+      expires_at:
+        type: string
+      feature_id:
+        type: string
+      granted_by:
+        type: string
+      id:
+        type: string
+      is_allowed:
+        type: boolean
+      reason:
+        type: string
+      scope_type:
+        type: string
+      user_id:
+        type: string
+    type: object
+  role.UpdateRoleRequest:
+    properties:
+      description:
+        type: string
+      display_name:
+        type: string
+    type: object
+  role.UserRoleResponse:
+    properties:
+      assigned_by:
+        type: string
+      display_name:
+        type: string
+      id:
+        type: string
+      role_id:
+        type: string
+      role_name:
+        type: string
+      scope_type:
+        type: string
+    type: object
+  user.CreateUserRequest:
+    properties:
+      actor_id:
+        type: string
+      actor_type:
+        enum:
+        - USER
+        - INSTRUCTOR
+        - LEARNER
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      password:
+        minLength: 8
+        type: string
+    required:
+    - actor_type
+    - email
+    - first_name
+    - last_name
+    - password
+    type: object
+  user.ListResponse:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/user.UserResponse'
+        type: array
+      page:
+        type: integer
+      total:
+        type: integer
+    type: object
+  user.UpdateUserRequest:
+    properties:
+      first_name:
+        type: string
+      is_active:
+        type: boolean
+      last_name:
+        type: string
+    type: object
+  user.UserResponse:
+    properties:
+      actor_type:
+        type: string
+      created_at:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: string
+      is_active:
+        type: boolean
+      last_login_at:
+        type: string
+      last_name:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: 'API REST de Identity and Access Management (IAM): autenticación JWT,
+    RBAC, usuarios, roles, funcionalidades, sesiones y auditoría.'
+  title: API JeussAirel (IAM)
+  version: "1.0"
+paths:
+  /audit/logins:
+    get:
+      description: Devuelve la auditoría de inicios de sesión paginada.
+      parameters:
+      - description: Número de página (default 1)
+        in: query
+        name: page
+        type: integer
+      - description: Tamaño de página (1-100, default 20)
+        in: query
+        name: page_size
+        type: integer
+      responses:
+        "200":
+          description: Auditoría obtenida
+          schema:
+            $ref: '#/definitions/response.Body'
+        "403":
+          description: Acceso denegado (AUDIT_LOG_VIEW:read)
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Listar auditoría de logins
+      tags:
+      - Audit
+  /audit/logins/users/{userId}:
+    get:
+      description: Devuelve el historial de inicios de sesión de un usuario.
+      parameters:
+      - description: UUID del usuario
+        in: path
+        name: userId
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Auditoría del usuario
+          schema:
+            $ref: '#/definitions/response.Body'
+        "403":
+          description: Acceso denegado (AUDIT_LOG_VIEW:read)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Usuario no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Auditoría de login de un usuario
+      tags:
+      - Audit
+  /auth/forgot-password:
+    post:
+      consumes:
+      - application/json
+      description: Genera una solicitud de reseteo. Si el email existe, se envía la
+        instrucción (token de recuperación).
+      parameters:
+      - description: Email del usuario
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/auth.ForgotPasswordRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Si el email existe, se envió la instrucción
+          schema:
+            $ref: '#/definitions/response.Body'
+        "400":
+          description: Datos inválidos
+          schema:
+            $ref: '#/definitions/response.Body'
+      summary: Solicitar recuperación de contraseña
+      tags:
+      - Auth
+  /auth/login:
+    post:
+      consumes:
+      - application/json
+      description: Autentica al usuario con email y contraseña y devuelve el par de
+        tokens (access + refresh).
+      parameters:
+      - description: Credenciales de acceso
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/auth.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Inicio de sesión exitoso
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/auth.TokenResponse'
+              type: object
+        "400":
+          description: Datos inválidos
+          schema:
+            $ref: '#/definitions/response.Body'
+        "401":
+          description: Credenciales inválidas
+          schema:
+            $ref: '#/definitions/response.Body'
+      summary: Iniciar sesión
+      tags:
+      - Auth
+  /auth/logout:
+    post:
+      consumes:
+      - application/json
+      description: Revoca el refresh token y cierra la sesión activa.
+      parameters:
+      - description: Refresh token
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/auth.LogoutRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Sesión cerrada
+          schema:
+            $ref: '#/definitions/response.Body'
+        "400":
+          description: Datos inválidos
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Cerrar sesión
+      tags:
+      - Auth
+  /auth/refresh:
+    post:
+      consumes:
+      - application/json
+      description: Renueva el access token (y el refresh token) usando un refresh
+        token válido.
+      parameters:
+      - description: Refresh token
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/auth.RefreshRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Tokens renovados
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/auth.TokenResponse'
+              type: object
+        "400":
+          description: Datos inválidos
+          schema:
+            $ref: '#/definitions/response.Body'
+        "401":
+          description: Refresh token inválido o expirado
+          schema:
+            $ref: '#/definitions/response.Body'
+      summary: Renovar tokens
+      tags:
+      - Auth
+  /auth/reset-password:
+    post:
+      consumes:
+      - application/json
+      description: Cambia la contraseña usando el token de recuperación generado en
+        forgot-password.
+      parameters:
+      - description: Token y nueva contraseña
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/auth.ResetPasswordRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Contraseña actualizada
+          schema:
+            $ref: '#/definitions/response.Body'
+        "400":
+          description: Datos inválidos
+          schema:
+            $ref: '#/definitions/response.Body'
+        "401":
+          description: Token inválido o expirado
+          schema:
+            $ref: '#/definitions/response.Body'
+      summary: Restablecer contraseña
+      tags:
+      - Auth
+  /features:
+    get:
+      parameters:
+      - description: Número de página (default 1)
+        in: query
+        name: page
+        type: integer
+      - description: Tamaño de página (1-100, default 20)
+        in: query
+        name: page_size
+        type: integer
+      responses:
+        "200":
+          description: Funcionalidades obtenidas
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/feature.ListFeaturesResponse'
+              type: object
+        "403":
+          description: Acceso denegado (IDENTITY_ROLE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Listar funcionalidades
+      tags:
+      - API
+    post:
+      parameters:
+      - description: Datos de la funcionalidad
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/feature.CreateFeatureRequest'
+      responses:
+        "201":
+          description: Funcionalidad creada
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/feature.FeatureResponse'
+              type: object
+        "400":
+          description: Datos inválidos
+          schema:
+            $ref: '#/definitions/response.Body'
+        "403":
+          description: Acceso denegado (IDENTITY_ROLE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Crear funcionalidad
+      tags:
+      - API
+  /features/{id}:
+    delete:
+      parameters:
+      - description: UUID de la funcionalidad
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Funcionalidad eliminada
+          schema:
+            $ref: '#/definitions/response.Body'
+        "403":
+          description: Acceso denegado (IDENTITY_ROLE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Funcionalidad no encontrada
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Eliminar funcionalidad
+      tags:
+      - API
+    get:
+      parameters:
+      - description: UUID de la funcionalidad
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Funcionalidad encontrada
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/feature.FeatureResponse'
+              type: object
+        "403":
+          description: Acceso denegado (IDENTITY_ROLE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Funcionalidad no encontrada
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Obtener funcionalidad por ID
+      tags:
+      - API
+    put:
+      parameters:
+      - description: UUID de la funcionalidad
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Campos a actualizar
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/feature.UpdateFeatureRequest'
+      responses:
+        "200":
+          description: Funcionalidad actualizada
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/feature.FeatureResponse'
+              type: object
+        "403":
+          description: Acceso denegado (IDENTITY_ROLE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Funcionalidad no encontrada
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Actualizar funcionalidad
+      tags:
+      - API
+  /modules:
+    get:
+      parameters:
+      - description: Número de página (default 1)
+        in: query
+        name: page
+        type: integer
+      - description: Tamaño de página (1-100, default 20)
+        in: query
+        name: page_size
+        type: integer
+      responses:
+        "200":
+          description: Módulos obtenidos
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/feature.ListModulesResponse'
+              type: object
+        "403":
+          description: Acceso denegado (IDENTITY_ROLE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Listar módulos
+      tags:
+      - API
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Datos del módulo
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/feature.CreateModuleRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Módulo creado
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/feature.ModuleResponse'
+              type: object
+        "400":
+          description: Datos inválidos
+          schema:
+            $ref: '#/definitions/response.Body'
+        "403":
+          description: Sin permisos (IDENTITY_ROLE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Crear módulo
+      tags:
+      - Modules
+  /modules/{id}:
+    delete:
+      parameters:
+      - description: UUID del módulo
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Módulo eliminado
+          schema:
+            $ref: '#/definitions/response.Body'
+        "403":
+          description: Acceso denegado (IDENTITY_ROLE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Módulo no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Eliminar módulo
+      tags:
+      - API
+    get:
+      parameters:
+      - description: UUID del módulo
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Módulo encontrado
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/feature.ModuleResponse'
+              type: object
+        "403":
+          description: Acceso denegado (IDENTITY_ROLE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Módulo no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Obtener módulo por ID
+      tags:
+      - Modules
+    put:
+      parameters:
+      - description: UUID del módulo
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Campos a actualizar
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/feature.UpdateModuleRequest'
+      responses:
+        "200":
+          description: Módulo actualizado
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/feature.ModuleResponse'
+              type: object
+        "403":
+          description: Acceso denegado (IDENTITY_ROLE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Módulo no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Actualizar módulo
+  /modules/{id}/features:
+    get:
+      parameters:
+      - description: UUID del módulo
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Funcionalidades del módulo
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/feature.ListFeaturesResponse'
+              type: object
+        "403":
+          description: Acceso denegado (IDENTITY_ROLE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Módulo no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Listar funcionalidades de un módulo
+      tags:
+      - API
+  /roles:
+    get:
+      description: Devuelve una lista paginada de roles.
+      parameters:
+      - description: Número de página (default 1)
+        in: query
+        name: page
+        type: integer
+      - description: Tamaño de página 1-100 (default 20)
+        in: query
+        name: page_size
+        type: integer
+      responses:
+        "200":
+          description: Roles obtenidos
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/role.ListResponse'
+              type: object
+        "403":
+          description: Sin permisos (IDENTITY_ROLE_VIEW:read)
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Listar roles
+      tags:
+      - Roles
+    post:
+      consumes:
+      - application/json
+      description: Registra un nuevo rol en el sistema.
+      parameters:
+      - description: Datos del rol
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/role.CreateRoleRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Rol creado
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/role.RoleResponse'
+              type: object
+        "400":
+          description: Datos inválidos
+          schema:
+            $ref: '#/definitions/response.Body'
+        "403":
+          description: Sin permisos (IDENTITY_ROLE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Crear rol
+      tags:
+      - Roles
+  /roles/{id}:
+    delete:
+      parameters:
+      - description: UUID del rol
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Rol eliminado
+          schema:
+            $ref: '#/definitions/response.Body'
+        "403":
+          description: Sin permisos (IDENTITY_ROLE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Rol no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Eliminar rol
+      tags:
+      - Roles
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: UUID del rol
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Rol encontrado
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/role.RoleResponse'
+              type: object
+        "403":
+          description: Sin permisos (IDENTITY_ROLE_VIEW:read)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Rol no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Obtener rol por ID
+      tags:
+      - Roles
+    put:
+      parameters:
+      - description: UUID del rol
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Campos a actualizar
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/role.UpdateRoleRequest'
+      responses:
+        "200":
+          description: Rol actualizado
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/role.RoleResponse'
+              type: object
+        "403":
+          description: Sin permisos (IDENTITY_ROLE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Rol no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Actualizar rol
+      tags:
+      - Roles
+  /roles/{id}/features:
+    get:
+      parameters:
+      - description: UUID del rol
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Funcionalidades del rol
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/role.ListFeaturesResponse'
+              type: object
+        "403":
+          description: Sin permisos (IDENTITY_ROLE_VIEW:read)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Rol no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Listar funcionalidades de un rol
+      tags:
+      - Roles
+    put:
+      parameters:
+      - description: UUID del rol
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Lista de funcionalidades con ámbito
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/role.AssignFeaturesRequest'
+      responses:
+        "200":
+          description: Funcionalidades asignadas
+          schema:
+            $ref: '#/definitions/response.Body'
+        "403":
+          description: Sin permisos (IDENTITY_ROLE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Rol no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Asignar funcionalidades a un rol
+      tags:
+      - Roles
+  /scope-overrides:
+    post:
+      parameters:
+      - description: Detalle del override
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/role.CreateScopeOverrideRequest'
+      responses:
+        "201":
+          description: Override creado
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/role.ScopeOverrideResponse'
+              type: object
+        "403":
+          description: Sin permisos (IDENTITY_SCOPE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Crear override de scope
+  /scope-overrides/{id}:
+    delete:
+      parameters:
+      - description: UUID del override
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Override eliminado
+          schema:
+            $ref: '#/definitions/response.Body'
+        "403":
+          description: Sin permisos (IDENTITY_SCOPE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Override no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Eliminar override de scope
+      tags:
+      - Roles
+  /scope-overrides/users/{id}:
+    get:
+      parameters:
+      - description: UUID del usuario
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Overrides obtenidos
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/role.ScopeOverrideResponse'
+              type: object
+        "403":
+          description: Sin permisos (IDENTITY_SCOPE_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Usuario no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Listar overrides de scope de un usuario
+      tags:
+      - Roles
+  /sessions/{id}:
+    delete:
+      description: Revoca una sesión del usuario autenticado por su ID.
+      parameters:
+      - description: UUID de la sesión
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Sesión revocada
+          schema:
+            $ref: '#/definitions/response.Body'
+        "401":
+          description: Token inválido o expirado
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Sesión no encontrada
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Revocar sesión
+      tags:
+      - Sessions
+  /sessions/active:
+    get:
+      description: Devuelve las sesiones (refresh tokens) activas del usuario autenticado.
+      responses:
+        "200":
+          description: Sesiones activas
+          schema:
+            $ref: '#/definitions/response.Body'
+        "401":
+          description: Token inválido o expirado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Listar sesiones activas
+      tags:
+      - Sessions
+  /users:
+    get:
+      consumes:
+      - application/json
+      description: Devuelve una lista paginada de usuarios.
+      parameters:
+      - description: Número de página (default 1)
+        in: query
+        name: page
+        type: integer
+      - description: Tamaño de página 1-100 (default 20)
+        in: query
+        name: page_size
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Usuarios obtenidos
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/user.ListResponse'
+              type: object
+        "403":
+          description: Sin permisos (IDENTITY_USER_VIEW:read)
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Listar usuarios
+      tags:
+      - Users
+    post:
+      consumes:
+      - application/json
+      description: Registra un nuevo usuario en el sistema.
+      parameters:
+      - description: Datos del usuario
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/user.CreateUserRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Usuario creado
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/user.UserResponse'
+              type: object
+        "400":
+          description: Datos inválidos
+          schema:
+            $ref: '#/definitions/response.Body'
+        "403":
+          description: Sin permisos (IDENTITY_USER_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Crear usuario
+      tags:
+      - Users
+  /users/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Elimina (desactiva) un usuario por su UUID.
+      parameters:
+      - description: UUID del usuario
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Usuario eliminado
+          schema:
+            $ref: '#/definitions/response.Body'
+        "403":
+          description: Sin permisos (IDENTITY_USER_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Usuario no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Eliminar usuario
+      tags:
+      - Users
+    get:
+      consumes:
+      - application/json
+      description: Devuelve un usuario por su UUID.
+      parameters:
+      - description: UUID del usuario
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Usuario encontrado
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/user.UserResponse'
+              type: object
+        "403":
+          description: Sin permisos (IDENTITY_USER_VIEW:read)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Usuario no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Obtener usuario por ID
+      tags:
+      - Users
+    put:
+      consumes:
+      - application/json
+      description: Actualiza los campos editables de un usuario.
+      parameters:
+      - description: UUID del usuario
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Campos a actualizar
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/user.UpdateUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Usuario actualizado
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/user.UserResponse'
+              type: object
+        "403":
+          description: Sin permisos (IDENTITY_USER_MANAGE:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Usuario no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Actualizar usuario
+      tags:
+      - Users
+  /users/{id}/roles:
+    get:
+      parameters:
+      - description: UUID del usuario
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Roles del usuario
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Body'
+            - properties:
+                data:
+                  $ref: '#/definitions/role.UserRoleResponse'
+              type: object
+        "403":
+          description: Sin permisos (IDENTITY_ROLE_VIEW:read)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Usuario no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Listar roles de un usuario
+    post:
+      parameters:
+      - description: UUID del usuario
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: ID del rol
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/role.AssignRoleRequest'
+      responses:
+        "201":
+          description: Rol asignado al usuario
+          schema:
+            $ref: '#/definitions/response.Body'
+        "403":
+          description: Sin permisos (IDENTITY_ROLE_ASSIGN:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Usuario o rol no encontrado
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Asignar rol a un usuario
+      tags:
+      - Roles
+  /users/{id}/roles/{userRoleId}:
+    delete:
+      parameters:
+      - description: UUID del usuario
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: UUID de la asignación usuario-rol
+        in: path
+        name: userRoleId
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Rol removido del usuario
+          schema:
+            $ref: '#/definitions/response.Body'
+        "403":
+          description: Sin permisos (IDENTITY_ROLE_ASSIGN:write)
+          schema:
+            $ref: '#/definitions/response.Body'
+        "404":
+          description: Asignación no encontrada
+          schema:
+            $ref: '#/definitions/response.Body'
+      security:
+      - BearerAuth: []
+      summary: Quitar rol de un usuario
+      tags:
+      - Roles
+securityDefinitions:
+  BearerAuth:
+    description: 'Token JWT de acceso. Uso: `Authorization: Bearer <access_token>`'
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

@@ -1,0 +1,288 @@
+time=2026-08-09T02:37:33.092-05:00 level=INFO msg="conexión a la base de datos establecida"
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] GET    /api/v1/health            --> main.setupRouter.func1 (4 handlers)
+[GIN-debug] POST   /api/v1/auth/register     --> github.com/jesus-ariel/api-jeussairel/auth.(*Handler).Register-fm (4 handlers)
+[GIN-debug] POST   /api/v1/auth/verify-email --> github.com/jesus-ariel/api-jeussairel/auth.(*Handler).VerifyEmail-fm (4 handlers)
+[GIN-debug] POST   /api/v1/auth/login        --> github.com/jesus-ariel/api-jeussairel/auth.(*Handler).Login-fm (4 handlers)
+[GIN-debug] POST   /api/v1/auth/refresh      --> github.com/jesus-ariel/api-jeussairel/auth.(*Handler).Refresh-fm (4 handlers)
+[GIN-debug] POST   /api/v1/auth/logout       --> github.com/jesus-ariel/api-jeussairel/auth.(*Handler).Logout-fm (4 handlers)
+[GIN-debug] POST   /api/v1/auth/forgot-password --> github.com/jesus-ariel/api-jeussairel/auth.(*Handler).ForgotPassword-fm (4 handlers)
+[GIN-debug] POST   /api/v1/auth/reset-password --> github.com/jesus-ariel/api-jeussairel/auth.(*Handler).ResetPassword-fm (4 handlers)
+[GIN-debug] GET    /api/v1/auth/me           --> github.com/jesus-ariel/api-jeussairel/auth.(*Handler).Me-fm (5 handlers)
+[GIN-debug] GET    /api/v1/users             --> github.com/jesus-ariel/api-jeussairel/user.(*Handler).List-fm (6 handlers)
+[GIN-debug] POST   /api/v1/users             --> github.com/jesus-ariel/api-jeussairel/user.(*Handler).Create-fm (6 handlers)
+[GIN-debug] GET    /api/v1/users/:id         --> github.com/jesus-ariel/api-jeussairel/user.(*Handler).GetById-fm (6 handlers)
+[GIN-debug] PUT    /api/v1/users/:id         --> github.com/jesus-ariel/api-jeussairel/user.(*Handler).Update-fm (6 handlers)
+[GIN-debug] DELETE /api/v1/users/:id         --> github.com/jesus-ariel/api-jeussairel/user.(*Handler).Delete-fm (6 handlers)
+[GIN-debug] GET    /api/v1/roles             --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).List-fm (6 handlers)
+[GIN-debug] POST   /api/v1/roles             --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).Create-fm (6 handlers)
+[GIN-debug] GET    /api/v1/roles/:id         --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).GetById-fm (6 handlers)
+[GIN-debug] PUT    /api/v1/roles/:id         --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).Update-fm (6 handlers)
+[GIN-debug] DELETE /api/v1/roles/:id         --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).Delete-fm (6 handlers)
+[GIN-debug] GET    /api/v1/roles/:id/features --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).ListFeatures-fm (6 handlers)
+[GIN-debug] PUT    /api/v1/roles/:id/features --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).AssignFeatures-fm (6 handlers)
+[GIN-debug] POST   /api/v1/users/:id/roles   --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).AssignRoleToUser-fm (6 handlers)
+[GIN-debug] GET    /api/v1/users/:id/roles   --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).ListRolesByUser-fm (6 handlers)
+[GIN-debug] DELETE /api/v1/users/:id/roles/:userRoleId --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).RemoveRoleFromUser-fm (6 handlers)
+[GIN-debug] POST   /api/v1/scope-overrides   --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).CreateScopeOverride-fm (6 handlers)
+[GIN-debug] GET    /api/v1/scope-overrides/users/:id --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).ListScopeOverrides-fm (6 handlers)
+[GIN-debug] DELETE /api/v1/scope-overrides/:id --> github.com/jesus-ariel/api-jeussairel/role.(*Handler).RemoveScopeOverride-fm (6 handlers)
+[GIN-debug] GET    /api/v1/modules           --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).ListModules-fm (6 handlers)
+[GIN-debug] POST   /api/v1/modules           --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).CreateModule-fm (6 handlers)
+[GIN-debug] GET    /api/v1/modules/:id       --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).GetModuleById-fm (6 handlers)
+[GIN-debug] PUT    /api/v1/modules/:id       --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).UpdateModule-fm (6 handlers)
+[GIN-debug] DELETE /api/v1/modules/:id       --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).DeleteModule-fm (6 handlers)
+[GIN-debug] GET    /api/v1/modules/:id/features --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).ListFeaturesByModule-fm (6 handlers)
+[GIN-debug] GET    /api/v1/features          --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).ListFeatures-fm (6 handlers)
+[GIN-debug] POST   /api/v1/features          --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).CreateFeature-fm (6 handlers)
+[GIN-debug] GET    /api/v1/features/:id      --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).GetFeatureById-fm (6 handlers)
+[GIN-debug] PUT    /api/v1/features/:id      --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).UpdateFeature-fm (6 handlers)
+[GIN-debug] DELETE /api/v1/features/:id      --> github.com/jesus-ariel/api-jeussairel/feature.(*Handler).DeleteFeature-fm (6 handlers)
+[GIN-debug] GET    /api/v1/sessions/active   --> github.com/jesus-ariel/api-jeussairel/session.(*Handler).ListActiveByUser-fm (5 handlers)
+[GIN-debug] DELETE /api/v1/sessions/:id      --> github.com/jesus-ariel/api-jeussairel/session.(*Handler).RevokeById-fm (5 handlers)
+[GIN-debug] GET    /api/v1/audit/logins      --> github.com/jesus-ariel/api-jeussairel/audit.(*Handler).List-fm (6 handlers)
+[GIN-debug] GET    /api/v1/audit/logins/users/:userId --> github.com/jesus-ariel/api-jeussairel/audit.(*Handler).ListByUser-fm (6 handlers)
+time=2026-08-09T02:37:33.119-05:00 level=INFO msg="servidor iniciado" port=8085 env=develop
+time=2026-08-09T02:38:34.950-05:00 level=INFO msg=request method=GET path=/api/v1/health status=200 latency=0s client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875"
+time=2026-08-09T02:38:34.985-05:00 level=WARN msg=request method=GET path=/api/v1/auth/me status=401 latency=0s client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875"
+time=2026-08-09T02:38:54.452-05:00 level=WARN msg=request method=GET path=/api/v1 status=404 latency=0s client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+time=2026-08-09T02:38:55.883-05:00 level=WARN msg=request method=GET path=/favicon.ico status=404 latency=0s client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+time=2026-08-09T02:38:55.918-05:00 level=WARN msg=request method=GET path=/favicon.ico status=404 latency=0s client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+time=2026-08-09T02:39:17.767-05:00 level=INFO msg=request method=GET path=/swagger/index.html status=200 latency=5.9243ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+time=2026-08-09T02:39:17.801-05:00 level=INFO msg=request method=GET path=/swagger/swagger-ui.css status=200 latency=1.3834ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+time=2026-08-09T02:39:17.802-05:00 level=INFO msg=request method=GET path=/swagger/index.css status=200 latency=0s client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+time=2026-08-09T02:39:17.803-05:00 level=INFO msg=request method=GET path=/swagger/swagger-initializer.js status=200 latency=1.0135ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+time=2026-08-09T02:39:17.805-05:00 level=INFO msg=request method=GET path=/swagger/swagger-ui-standalone-preset.js status=200 latency=3.0981ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+time=2026-08-09T02:39:17.810-05:00 level=INFO msg=request method=GET path=/swagger/swagger-ui-bundle.js status=200 latency=8.8663ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+time=2026-08-09T02:39:18.483-05:00 level=INFO msg=request method=GET path=/swagger/favicon-32x32.png status=200 latency=0s client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+time=2026-08-09T02:39:18.510-05:00 level=INFO msg=request method=GET path=/swagger/doc.json status=200 latency=3.8692ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+time=2026-08-09T02:40:41.873-05:00 level=WARN msg=request method=GET path=/api/v1 status=404 latency=802.5µs client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+time=2026-08-09T02:40:42.516-05:00 level=WARN msg=request method=GET path=/favicon.ico status=404 latency=0s client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+time=2026-08-09T02:40:45.758-05:00 level=WARN msg=request method=GET path=/ status=404 latency=0s client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+time=2026-08-09T02:40:45.924-05:00 level=WARN msg=request method=GET path=/favicon.ico status=404 latency=0s client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+time=2026-08-09T02:42:17.068-05:00 level=INFO msg=request method=GET path=/api/v1/health status=200 latency=0s client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+time=2026-08-09T02:42:17.733-05:00 level=WARN msg=request method=GET path=/favicon.ico status=404 latency=0s client_ip=::1 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+
+2026/08/09 02:59:13 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:51
+[0m[33m[94.162ms] [34;1m[rows:1][0m SELECT * FROM "identity"."user" WHERE email = 'admin@sena.edu.co' ORDER BY "user"."id" LIMIT 1
+
+2026/08/09 02:59:13 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:106
+[0m[33m[16.275ms] [34;1m[rows:1][0m UPDATE "identity"."user" SET "failed_attempts"=0,"updated_at"='2026-08-09 02:59:13.825' WHERE id = 'c0000000-0000-0000-0000-000000000001'
+
+2026/08/09 02:59:13 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:112
+[0m[33m[2.705ms] [34;1m[rows:1][0m UPDATE "identity"."user" SET "locked_until"=NULL,"updated_at"='2026-08-09 02:59:13.832' WHERE id = 'c0000000-0000-0000-0000-000000000001'
+
+2026/08/09 02:59:13 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:94
+[0m[33m[1.724ms] [34;1m[rows:1][0m UPDATE "identity"."user" SET "last_login_at"='2026-08-09 02:59:13.813',"updated_at"='2026-08-09 02:59:13.835' WHERE id = 'c0000000-0000-0000-0000-000000000001'
+
+2026/08/09 02:59:13 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/session/repository.go:23
+[0m[33m[5.835ms] [34;1m[rows:1][0m INSERT INTO "session"."refresh_token" ("id","user_id","token_hash","device_hint","ip_address","is_revoked","revoked_at","expires_at") VALUES ('c1d8f3ff-6eb7-41c3-9895-458c487a84db','c0000000-0000-0000-0000-000000000001','d53f221d0e2caf34a573053f95724c60b5b8c7ec63691ae0e63bcb4e12b32b8f',NULL,'::1',false,NULL,'2026-08-16 02:59:13.838') RETURNING "expires_at","created_at"
+
+2026/08/09 02:59:13 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/audit/repository.go:21
+[0m[33m[4.527ms] [34;1m[rows:1][0m INSERT INTO "identity_audit"."audit_login" ("id","user_id","email_attempted","outcome","ip_address","user_agent") VALUES ('8f98c0e8-8d62-47ea-b590-33ce3af62842','c0000000-0000-0000-0000-000000000001','admin@sena.edu.co','SUCCESS','::1','Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875') RETURNING "attempted_at"
+time=2026-08-09T02:59:13.854-05:00 level=INFO msg=request method=POST path=/api/v1/auth/login status=200 latency=360.7716ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875"
+
+2026/08/09 02:59:13 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:42
+[0m[33m[1.910ms] [34;1m[rows:1][0m SELECT * FROM "identity"."user" WHERE id = 'c0000000-0000-0000-0000-000000000001' ORDER BY "user"."id" LIMIT 1
+
+2026/08/09 02:59:13 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/auth/repository.go:44
+[0m[33m[9.133ms] [34;1m[rows:1][0m SELECT rl.*
+		 FROM rbac.user_role AS ur
+		 JOIN rbac.role AS rl ON rl.id = ur.role_id
+		 WHERE ur.user_id = 'c0000000-0000-0000-0000-000000000001' AND (ur.expires_at IS NULL OR ur.expires_at > now())
+
+2026/08/09 02:59:13 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/auth/repository.go:72
+[0m[33m[15.330ms] [34;1m[rows:-][0m WITH resolved AS (
+			SELECT DISTINCT f.code, f.action_level, rf.scope_type
+			FROM rbac.user_role AS ur
+			JOIN rbac.role_feature AS rf ON rf.role_id = ur.role_id
+			JOIN rbac_catalog.feature AS f ON f.id = rf.feature_id
+			WHERE ur.user_id = 'c0000000-0000-0000-0000-000000000001' AND (ur.expires_at IS NULL OR ur.expires_at > now())
+			UNION
+			SELECT DISTINCT f.code, f.action_level, so.scope_type
+			FROM rbac.user_scope_override AS so
+			JOIN rbac_catalog.feature AS f ON f.id = so.feature_id
+			WHERE so.user_id = 'c0000000-0000-0000-0000-000000000001' AND so.is_allowed = true
+			  AND (so.expires_at IS NULL OR so.expires_at > now())
+		)
+		SELECT code, MAX(action_level) AS action_level, MAX(scope_type) AS scope_type
+		FROM resolved
+		GROUP BY code
+time=2026-08-09T02:59:13.989-05:00 level=INFO msg=request method=GET path=/api/v1/auth/me status=200 latency=27.7741ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875" user_id=c0000000-0000-0000-0000-000000000001
+
+2026/08/09 03:00:01 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:51
+[0m[33m[2.108ms] [34;1m[rows:1][0m SELECT * FROM "identity"."user" WHERE email = 'admin@sena.edu.co' ORDER BY "user"."id" LIMIT 1
+
+2026/08/09 03:00:01 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:106
+[0m[33m[2.922ms] [34;1m[rows:1][0m UPDATE "identity"."user" SET "failed_attempts"=0,"updated_at"='2026-08-09 03:00:01.413' WHERE id = 'c0000000-0000-0000-0000-000000000001'
+
+2026/08/09 03:00:01 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:112
+[0m[33m[3.544ms] [34;1m[rows:1][0m UPDATE "identity"."user" SET "locked_until"=NULL,"updated_at"='2026-08-09 03:00:01.415' WHERE id = 'c0000000-0000-0000-0000-000000000001'
+
+2026/08/09 03:00:01 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:94
+[0m[33m[2.004ms] [34;1m[rows:1][0m UPDATE "identity"."user" SET "last_login_at"='2026-08-09 03:00:01.412',"updated_at"='2026-08-09 03:00:01.418' WHERE id = 'c0000000-0000-0000-0000-000000000001'
+
+2026/08/09 03:00:01 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/session/repository.go:23
+[0m[33m[2.513ms] [34;1m[rows:1][0m INSERT INTO "session"."refresh_token" ("id","user_id","token_hash","device_hint","ip_address","is_revoked","revoked_at","expires_at") VALUES ('caa2ea77-2297-4b40-80eb-90f29cc13f4d','c0000000-0000-0000-0000-000000000001','98f14fef6515efed03c8b124ae51608851ea3d62536a9549f2f5a6f342d1ec36',NULL,'::1',false,NULL,'2026-08-16 03:00:01.42') RETURNING "expires_at","created_at"
+
+2026/08/09 03:00:01 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/audit/repository.go:21
+[0m[33m[0.000ms] [34;1m[rows:1][0m INSERT INTO "identity_audit"."audit_login" ("id","user_id","email_attempted","outcome","ip_address","user_agent") VALUES ('2aa57da1-a395-4f85-aad0-50b6dbc471ac','c0000000-0000-0000-0000-000000000001','admin@sena.edu.co','SUCCESS','::1','Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875') RETURNING "attempted_at"
+time=2026-08-09T03:00:01.423-05:00 level=INFO msg=request method=POST path=/api/v1/auth/login status=200 latency=221.2413ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875"
+
+2026/08/09 03:00:01 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/middleware/authorization.go:40
+[0m[33m[2.092ms] [34;1m[rows:-][0m SELECT id FROM rbac_catalog.feature
+			 WHERE code = 'IDENTITY_USER_VIEW' AND is_active = true LIMIT 1
+
+2026/08/09 03:00:01 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/middleware/authorization.go:60
+[0m[33m[3.296ms] [34;1m[rows:-][0m SELECT CASE
+				WHEN COUNT(*) FILTER (WHERE is_allowed = false) > 0 THEN 'denied'
+				WHEN COUNT(*) FILTER (WHERE is_allowed = true) > 0 THEN 'granted'
+				ELSE 'none'
+			 END
+			 FROM rbac.user_scope_override
+			 WHERE user_id = 'c0000000-0000-0000-0000-000000000001' AND feature_id = 'acd39fa1-201c-4d66-8712-4c2a00699e27'
+			   AND (expires_at IS NULL OR expires_at > now())
+
+2026/08/09 03:00:01 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/middleware/authorization.go:87
+[0m[33m[2.598ms] [34;1m[rows:-][0m SELECT f.action_level
+			 FROM rbac.user_role AS ur
+			 JOIN rbac.role_feature AS rf ON rf.role_id = ur.role_id
+			 JOIN rbac_catalog.feature AS f ON f.id = rf.feature_id
+			 WHERE ur.user_id = 'c0000000-0000-0000-0000-000000000001' AND f.id = 'acd39fa1-201c-4d66-8712-4c2a00699e27'
+			   AND (ur.expires_at IS NULL OR ur.expires_at > now())
+			 ORDER BY (CASE f.action_level
+				WHEN 'APPROVE' THEN 5 WHEN 'PUBLISH' THEN 4
+				WHEN 'DELETE' THEN 3 WHEN 'WRITE' THEN 2 ELSE 1 END) DESC
+			 LIMIT 1
+time=2026-08-09T03:00:01.545-05:00 level=WARN msg=request method=GET path="/api/v1/users?page=1&page_size=1" status=403 latency=8.4179ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875" user_id=c0000000-0000-0000-0000-000000000001
+
+2026/08/09 03:03:58 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:51
+[0m[33m[2.342ms] [34;1m[rows:1][0m SELECT * FROM "identity"."user" WHERE email = 'admin@sena.edu.co' ORDER BY "user"."id" LIMIT 1
+
+2026/08/09 03:03:58 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:106
+[0m[33m[22.826ms] [34;1m[rows:1][0m UPDATE "identity"."user" SET "failed_attempts"=0,"updated_at"='2026-08-09 03:03:58.567' WHERE id = 'c0000000-0000-0000-0000-000000000001'
+
+2026/08/09 03:03:58 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:112
+[0m[33m[2.998ms] [34;1m[rows:1][0m UPDATE "identity"."user" SET "locked_until"=NULL,"updated_at"='2026-08-09 03:03:58.59' WHERE id = 'c0000000-0000-0000-0000-000000000001'
+
+2026/08/09 03:03:58 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:94
+[0m[33m[2.327ms] [34;1m[rows:1][0m UPDATE "identity"."user" SET "last_login_at"='2026-08-09 03:03:58.566',"updated_at"='2026-08-09 03:03:58.593' WHERE id = 'c0000000-0000-0000-0000-000000000001'
+
+2026/08/09 03:03:58 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/session/repository.go:23
+[0m[33m[4.008ms] [34;1m[rows:1][0m INSERT INTO "session"."refresh_token" ("id","user_id","token_hash","device_hint","ip_address","is_revoked","revoked_at","expires_at") VALUES ('8de60e61-5680-412e-9b7b-e7b321f80283','c0000000-0000-0000-0000-000000000001','a27e77b82ad5e27c1b835b9606b2c00a4e33ea389a60b11955ab3dbe86f2d776',NULL,'::1',false,NULL,'2026-08-16 03:03:58.595') RETURNING "expires_at","created_at"
+
+2026/08/09 03:03:58 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/audit/repository.go:21
+[0m[33m[1.830ms] [34;1m[rows:1][0m INSERT INTO "identity_audit"."audit_login" ("id","user_id","email_attempted","outcome","ip_address","user_agent") VALUES ('8acbc0a6-c99e-453d-9100-f90b1ed2f83e','c0000000-0000-0000-0000-000000000001','admin@sena.edu.co','SUCCESS','::1','Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875') RETURNING "attempted_at"
+time=2026-08-09T03:03:58.601-05:00 level=INFO msg=request method=POST path=/api/v1/auth/login status=200 latency=256.9109ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875"
+
+2026/08/09 03:03:58 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:42
+[0m[33m[0.897ms] [34;1m[rows:1][0m SELECT * FROM "identity"."user" WHERE id = 'c0000000-0000-0000-0000-000000000001' ORDER BY "user"."id" LIMIT 1
+
+2026/08/09 03:03:58 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/auth/repository.go:44
+[0m[33m[1.073ms] [34;1m[rows:1][0m SELECT rl.*
+		 FROM rbac.user_role AS ur
+		 JOIN rbac.role AS rl ON rl.id = ur.role_id
+		 WHERE ur.user_id = 'c0000000-0000-0000-0000-000000000001' AND (ur.expires_at IS NULL OR ur.expires_at > now())
+
+2026/08/09 03:03:58 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/auth/repository.go:72
+[0m[33m[0.502ms] [34;1m[rows:-][0m WITH resolved AS (
+			SELECT DISTINCT f.code, f.action_level, rf.scope_type
+			FROM rbac.user_role AS ur
+			JOIN rbac.role_feature AS rf ON rf.role_id = ur.role_id
+			JOIN rbac_catalog.feature AS f ON f.id = rf.feature_id
+			WHERE ur.user_id = 'c0000000-0000-0000-0000-000000000001' AND (ur.expires_at IS NULL OR ur.expires_at > now())
+			UNION
+			SELECT DISTINCT f.code, f.action_level, so.scope_type
+			FROM rbac.user_scope_override AS so
+			JOIN rbac_catalog.feature AS f ON f.id = so.feature_id
+			WHERE so.user_id = 'c0000000-0000-0000-0000-000000000001' AND so.is_allowed = true
+			  AND (so.expires_at IS NULL OR so.expires_at > now())
+		)
+		SELECT code, MAX(action_level) AS action_level, MAX(scope_type) AS scope_type
+		FROM resolved
+		GROUP BY code
+time=2026-08-09T03:03:58.650-05:00 level=INFO msg=request method=GET path=/api/v1/auth/me status=200 latency=4.0563ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875" user_id=c0000000-0000-0000-0000-000000000001
+
+2026/08/09 03:03:58 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/middleware/authorization.go:40
+[0m[33m[0.875ms] [34;1m[rows:-][0m SELECT id FROM rbac_catalog.feature
+			 WHERE code = 'IDENTITY_USER_VIEW' AND is_active = true LIMIT 1
+
+2026/08/09 03:03:58 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/middleware/authorization.go:60
+[0m[33m[1.473ms] [34;1m[rows:-][0m SELECT CASE
+				WHEN COUNT(*) FILTER (WHERE is_allowed = false) > 0 THEN 'denied'
+				WHEN COUNT(*) FILTER (WHERE is_allowed = true) > 0 THEN 'granted'
+				ELSE 'none'
+			 END
+			 FROM rbac.user_scope_override
+			 WHERE user_id = 'c0000000-0000-0000-0000-000000000001' AND feature_id = 'acd39fa1-201c-4d66-8712-4c2a00699e27'
+			   AND (expires_at IS NULL OR expires_at > now())
+
+2026/08/09 03:03:58 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/middleware/authorization.go:87
+[0m[33m[0.570ms] [34;1m[rows:-][0m SELECT f.action_level
+			 FROM rbac.user_role AS ur
+			 JOIN rbac.role_feature AS rf ON rf.role_id = ur.role_id
+			 JOIN rbac_catalog.feature AS f ON f.id = rf.feature_id
+			 WHERE ur.user_id = 'c0000000-0000-0000-0000-000000000001' AND f.id = 'acd39fa1-201c-4d66-8712-4c2a00699e27'
+			   AND (ur.expires_at IS NULL OR ur.expires_at > now())
+			 ORDER BY (CASE f.action_level
+				WHEN 'APPROVE' THEN 5 WHEN 'PUBLISH' THEN 4
+				WHEN 'DELETE' THEN 3 WHEN 'WRITE' THEN 2 ELSE 1 END) DESC
+			 LIMIT 1
+
+2026/08/09 03:03:58 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:63
+[0m[33m[0.860ms] [34;1m[rows:1][0m SELECT * FROM "identity"."user" ORDER BY last_name ASC, first_name ASC LIMIT 1
+
+2026/08/09 03:03:58 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:72
+[0m[33m[1.716ms] [34;1m[rows:1][0m SELECT count(*) FROM "identity"."user"
+time=2026-08-09T03:03:58.708-05:00 level=INFO msg=request method=GET path="/api/v1/users?page=1&page_size=1" status=200 latency=9.5548ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875" user_id=c0000000-0000-0000-0000-000000000001
+
+2026/08/09 03:04:10 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:81
+[0m[33m[1.704ms] [34;1m[rows:1][0m SELECT count(*) FROM "identity"."user" WHERE email = 'prueba.rol@example.com'
+
+2026/08/09 03:04:10 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:26
+[0m[33m[3.268ms] [34;1m[rows:1][0m INSERT INTO "identity"."user" ("id","email","password_hash","first_name","last_name","actor_type","actor_id","is_active","failed_attempts") VALUES ('25cdd114-2785-4c69-baee-3f8529a34239','prueba.rol@example.com','$2a$10$B9bVnJwGoc4AR1AHHnpPc.kRe4QWC3FQcaNHc6c.ZnauwlvkHPfOG','Prueba','Rol','LEARNER',NULL,false,0) RETURNING "created_at","updated_at"
+
+2026/08/09 03:04:10 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/session/repository.go:110
+[0m[33m[10.009ms] [34;1m[rows:1][0m INSERT INTO "session"."email_verification_code" ("id","user_id","code_hash","is_used","ip_address","expires_at") VALUES ('37bffa4e-a515-436b-b741-7b433da4bbe8','25cdd114-2785-4c69-baee-3f8529a34239','6c665d1487ba250f58867ededd88763b5ba74c680a7d950565fc66d1f1e912bb',false,'::1','2026-08-09 03:19:10.418') RETURNING "expires_at","requested_at"
+time=2026-08-09T03:04:12.946-05:00 level=INFO msg=request method=POST path=/api/v1/auth/register status=201 latency=2.588564s client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875"
+
+2026/08/09 03:04:12 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:51
+[0m[33m[1.665ms] [34;1m[rows:1][0m SELECT * FROM "identity"."user" WHERE email = 'prueba.rol@example.com' ORDER BY "user"."id" LIMIT 1
+
+2026/08/09 03:04:13 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/audit/repository.go:21
+[0m[33m[1.928ms] [34;1m[rows:1][0m INSERT INTO "identity_audit"."audit_login" ("id","user_id","email_attempted","outcome","ip_address","user_agent") VALUES ('c1f6af1d-7639-4c2c-ab9b-f885d17049ca','25cdd114-2785-4c69-baee-3f8529a34239','prueba.rol@example.com','ACCOUNT_LOCKED','::1','Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875') RETURNING "attempted_at"
+time=2026-08-09T03:04:13.001-05:00 level=WARN msg=request method=POST path=/api/v1/auth/login status=403 latency=5.6488ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875"
+
+2026/08/09 03:04:32 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:81
+[0m[33m[16.362ms] [34;1m[rows:1][0m SELECT count(*) FROM "identity"."user" WHERE email = 'prueba.rol@example.com'
+time=2026-08-09T03:04:32.521-05:00 level=WARN msg=request method=POST path=/api/v1/auth/register status=409 latency=18.5086ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875"
+time=2026-08-09T03:04:32.616-05:00 level=WARN msg=request method=POST path=/api/v1/auth/verify-email status=400 latency=0s client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875"
+
+2026/08/09 03:04:32 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:51
+[0m[33m[4.074ms] [34;1m[rows:1][0m SELECT * FROM "identity"."user" WHERE email = 'prueba.rol@example.com' ORDER BY "user"."id" LIMIT 1
+
+2026/08/09 03:04:32 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/audit/repository.go:21
+[0m[33m[3.694ms] [34;1m[rows:1][0m INSERT INTO "identity_audit"."audit_login" ("id","user_id","email_attempted","outcome","ip_address","user_agent") VALUES ('46388609-de1d-490d-bd24-26a6226fce60','25cdd114-2785-4c69-baee-3f8529a34239','prueba.rol@example.com','ACCOUNT_LOCKED','::1','Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875') RETURNING "attempted_at"
+time=2026-08-09T03:04:32.627-05:00 level=WARN msg=request method=POST path=/api/v1/auth/login status=403 latency=8.0965ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875"
+
+2026/08/09 03:05:01 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:81
+[0m[33m[1.756ms] [34;1m[rows:1][0m SELECT count(*) FROM "identity"."user" WHERE email = 'nueva.cuenta030501@example.com'
+
+2026/08/09 03:05:01 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:26
+[0m[33m[9.985ms] [34;1m[rows:1][0m INSERT INTO "identity"."user" ("id","email","password_hash","first_name","last_name","actor_type","actor_id","is_active","failed_attempts") VALUES ('2f932056-0da1-44be-be64-8256bb103c19','nueva.cuenta030501@example.com','$2a$10$wwS/L12NJGJHkXm0z4jd2.LJTMVidAXiank/u/qbtMnT6IfPb9MxC','Ana','Nueva','LEARNER',NULL,false,0) RETURNING "created_at","updated_at"
+
+2026/08/09 03:05:01 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/session/repository.go:110
+[0m[33m[2.619ms] [34;1m[rows:1][0m INSERT INTO "session"."email_verification_code" ("id","user_id","code_hash","is_used","ip_address","expires_at") VALUES ('801a5061-8c47-42dc-9241-fd2d8f1ffd1a','2f932056-0da1-44be-be64-8256bb103c19','f4661f4f2e87196f796401465c439f80f44c20ecb771a917178bd8b66c696bcb',false,'::1','2026-08-09 03:20:01.406') RETURNING "expires_at","requested_at"
+time=2026-08-09T03:05:04.421-05:00 level=INFO msg=request method=POST path=/api/v1/auth/register status=201 latency=3.0752029s client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875"
+
+2026/08/09 03:05:04 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/user/repository.go:51
+[0m[33m[2.393ms] [34;1m[rows:1][0m SELECT * FROM "identity"."user" WHERE email = 'nueva.cuenta030501@example.com' ORDER BY "user"."id" LIMIT 1
+
+2026/08/09 03:05:04 [32mC:/Users/rodri/Downloads/Api-Go-Security/API-Go/audit/repository.go:21
+[0m[33m[3.207ms] [34;1m[rows:1][0m INSERT INTO "identity_audit"."audit_login" ("id","user_id","email_attempted","outcome","ip_address","user_agent") VALUES ('0928eefc-c4c1-4654-9c55-60339b759567','2f932056-0da1-44be-be64-8256bb103c19','nueva.cuenta030501@example.com','ACCOUNT_LOCKED','::1','Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875') RETURNING "attempted_at"
+time=2026-08-09T03:05:04.490-05:00 level=WARN msg=request method=POST path=/api/v1/auth/login status=403 latency=6.1085ms client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875"
+time=2026-08-09T03:05:04.550-05:00 level=WARN msg=request method=GET path=/api/v1/auth/me status=401 latency=0s client_ip=::1 user_agent="Mozilla/5.0 (Windows NT; Windows NT 10.0; es-CO) WindowsPowerShell/5.1.26100.8875"

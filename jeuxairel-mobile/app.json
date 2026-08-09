@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "JeuxAirel IAM",
+    "slug": "jeuxairel-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#00843D"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jeuxairel.iam"
+    },
+    "android": {
+      "package": "com.jeuxairel.iam"
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
