@@ -24,7 +24,7 @@ export default function App() {
       <ToastProvider>
         <AuthProvider>
           <NavigationContainer theme={appTheme}>
-            <StatusBar style="dark" />
+            <StatusBar style="light" />
             <RootNavigator />
           </NavigationContainer>
         </AuthProvider>

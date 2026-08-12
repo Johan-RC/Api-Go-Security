@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
   ActivityIndicator,
   TouchableOpacityProps,
   View,
+  Animated,
 } from 'react-native';
-import { colors, radius, spacing } from '@/theme';
+import { colors, radius, shadows, spacing } from '@/theme';
+import { pointer, nativeDriver } from '@/utils/web';
 import { Text } from '@/components/Text';
 
 type Variant = 'primary' | 'secondary' | 'danger' | 'ghost' | 'outline';
@@ -25,34 +27,58 @@ export function Button({
   icon,
   disabled,
   style,
+  onPressIn,
+  onPressOut,
   ...props
 }: ButtonProps) {
   const palette = variants[variant];
+  const scale = useRef(new Animated.Value(1)).current;
+
+  function handlePressIn(e: Parameters<NonNullable<TouchableOpacityProps['onPressIn']>>[0]) {
+    Animated.spring(scale, { toValue: 0.96, speed: 40, bounciness: 0, useNativeDriver: nativeDriver }).start();
+    onPressIn?.(e);
+  }
+
+  function handlePressOut(e: Parameters<NonNullable<TouchableOpacityProps['onPressOut']>>[0]) {
+    Animated.spring(scale, { toValue: 1, speed: 40, bounciness: 0, useNativeDriver: nativeDriver }).start();
+    onPressOut?.(e);
+  }
 
   return (
     <TouchableOpacity
-      activeOpacity={0.85}
+      activeOpacity={0.8}
       disabled={disabled || loading}
-      style={[styles.base, { backgroundColor: palette.bg }, disabled || loading ? styles.disabled : null, style]}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
+      style={[
+        styles.base,
+        pointer,
+        { backgroundColor: palette.bg },
+        variant === 'primary' ? styles.primaryShadow : null,
+        disabled || loading ? styles.disabled : null,
+        style,
+      ]}
       {...props}
     >
-      {loading ? (
-        <ActivityIndicator color={palette.fg} />
-      ) : (
-        <View style={styles.content}>
-          {icon}
-          <Text variant="label" bold style={{ color: palette.fg }}>
-            {label}
-          </Text>
-        </View>
-      )}
+      <Animated.View style={{ transform: [{ scale }] }}>
+        {loading ? (
+          <ActivityIndicator color={palette.fg} />
+        ) : (
+          <View style={styles.content}>
+            {icon}
+            <Text variant="label" bold style={{ color: palette.fg }}>
+              {label}
+            </Text>
+          </View>
+        )}
+      </Animated.View>
     </TouchableOpacity>
   );
 }
 
 const variants: Record<Variant, { bg: string; fg: string }> = {
   primary: { bg: colors.primary, fg: '#FFFFFF' },
-  secondary: { bg: colors.primarySoft, fg: colors.primary },
+  secondary: { bg: colors.primarySoft, fg: colors.primaryLight },
   danger: { bg: colors.danger, fg: '#FFFFFF' },
   ghost: { bg: 'transparent', fg: colors.primary },
   outline: { bg: colors.surface, fg: colors.textSecondary },
@@ -65,8 +91,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.lg,
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: 48,
+    minHeight: 50,
   },
+  primaryShadow: { ...shadows.md },
   content: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
   disabled: { opacity: 0.5 },
 });

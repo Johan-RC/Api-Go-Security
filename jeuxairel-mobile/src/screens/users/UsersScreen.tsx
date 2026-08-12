@@ -16,6 +16,7 @@ import { usePaginatedList } from '@/hooks/usePaginatedList';
 import { listUsers } from '@/api/endpoints';
 import { getErrorMessage } from '@/api/errors';
 import { colors, spacing, radius, shadows } from '@/theme';
+import { pointer } from '@/utils/web';
 import { initials } from '@/utils/format';
 import type { UserResponse } from '@/types/models';
 import type { UsersStackParamList } from '@/navigation/types';
@@ -70,7 +71,7 @@ export function UsersScreen({ navigation }: Props) {
           <EmptyState icon="users" title="Sin usuarios" subtitle="Crea tu primer usuario con el botón de abajo." />
         }
         renderItem={({ item }) => (
-          <Pressable style={styles.userRow} onPress={() => navigation.navigate('UserDetail', { userId: item.id })}>
+          <Pressable style={[styles.userRow, pointer]} onPress={() => navigation.navigate('UserDetail', { userId: item.id })}>
             <Avatar text={initials(item.first_name, item.last_name)} />
             <View style={styles.userInfo}>
               <Text variant="body" bold numberOfLines={1}>
@@ -95,7 +96,7 @@ export function UsersScreen({ navigation }: Props) {
       />
 
       {canCreateUser ? (
-        <Pressable style={styles.fab} onPress={() => navigation.navigate('UserDetail', { userId: 'new' })}>
+        <Pressable style={[styles.fab, pointer]} onPress={() => navigation.navigate('UserDetail', { userId: 'new' })}>
           <Feather name="user-plus" size={22} color="#FFFFFF" />
         </Pressable>
       ) : null}

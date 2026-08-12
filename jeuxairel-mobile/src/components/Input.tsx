@@ -1,5 +1,5 @@
-import React, { forwardRef } from 'react';
-import { StyleSheet, TextInput, TextInputProps, View, Pressable } from 'react-native';
+import React, { forwardRef, useState } from 'react';
+import { StyleSheet, TextInput, TextInputProps, View, Pressable, TextStyle } from 'react-native';
 import { colors, radius, spacing } from '@/theme';
 import { Text } from '@/components/Text';
 
@@ -11,10 +11,19 @@ interface InputProps extends TextInputProps {
   onRightPress?: () => void;
 }
 
+// En web, el navegador pinta un recuadro de foco (normalmente negro). 'none'
+// no está tipado en RN, pero es válido en CSS y elimina ese recuadro feo.
+const focusReset = {
+  outlineStyle: 'none',
+  outlineWidth: 0,
+} as unknown as TextStyle;
+
 export const Input = forwardRef<TextInput, InputProps>(function Input(
-  { label, error, leftIcon, rightIcon, onRightPress, style, ...props },
+  { label, error, leftIcon, rightIcon, onRightPress, style, onFocus, onBlur, ...props },
   ref,
 ) {
+  const [focused, setFocused] = useState(false);
+
   return (
     <View style={styles.wrapper}>
       {label ? (
@@ -22,13 +31,34 @@ export const Input = forwardRef<TextInput, InputProps>(function Input(
           {label}
         </Text>
       ) : null}
-      <View style={[styles.container, error ? styles.containerError : null]}>
-        {leftIcon ? <View style={styles.sideLeft}>{leftIcon}</View> : null}
+      <View
+        style={[
+          styles.container,
+          error ? styles.containerError : null,
+          focused && !error ? styles.containerFocused : null,
+        ]}
+      >
+        {leftIcon ? (
+          <View style={[styles.sideLeft, focused ? { opacity: 1 } : null]}>
+            {leftIcon}
+          </View>
+        ) : null}
         <TextInput
           ref={ref}
           placeholderTextColor={colors.textMuted}
+          selectionColor={colors.primary}
+          cursorColor={colors.primary}
+          onFocus={(e) => {
+            setFocused(true);
+            onFocus?.(e);
+          }}
+          onBlur={(e) => {
+            setFocused(false);
+            onBlur?.(e);
+          }}
           style={[
             styles.input,
+            focusReset,
             leftIcon ? styles.inputSideLeft : null,
             rightIcon ? styles.inputSideRight : null,
             style,
@@ -64,9 +94,19 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     borderRadius: radius.md,
     minHeight: 54,
+    overflow: 'hidden',
   },
-  containerError: { borderColor: colors.danger },
-  sideLeft: { paddingLeft: spacing.md },
+  containerFocused: {
+    borderColor: colors.primary,
+    backgroundColor: colors.primarySoft,
+    shadowColor: colors.primary,
+    shadowOpacity: 0.12,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 3,
+  },
+  containerError: { borderColor: colors.danger, backgroundColor: colors.surface },
+  sideLeft: { paddingLeft: spacing.md, opacity: 0.85 },
   sideRight: { paddingRight: spacing.md },
   input: {
     flex: 1,

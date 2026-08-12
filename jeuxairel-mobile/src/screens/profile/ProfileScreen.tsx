@@ -5,6 +5,7 @@ import { Feather } from '@expo/vector-icons';
 import { Screen, Text, Card, Avatar, Badge } from '@/components';
 import { useAuth } from '@/contexts/AuthContext';
 import { colors, spacing } from '@/theme';
+import { pointer } from '@/utils/web';
 import { initials } from '@/utils/format';
 import type { MoreStackParamList, MainTabParamList } from '@/navigation/types';
 
@@ -73,7 +74,7 @@ function MenuRow({
 }) {
   return (
     <Pressable
-      style={[styles.menuRow, last ? styles.menuRowLast : null]}
+      style={[styles.menuRow, pointer, last ? styles.menuRowLast : null]}
       onPress={onPress}
       android_ripple={{ color: colors.border }}
     >
@@ -91,7 +92,7 @@ function MenuRow({
 
 function ButtonLogout({ onPress }: { onPress: () => void }) {
   return (
-    <Pressable style={styles.logout} onPress={onPress}>
+    <Pressable style={[styles.logout, pointer]} onPress={onPress}>
       <Feather name="log-out" size={18} color={colors.danger} />
       <Text variant="body" color="danger" bold>Cerrar sesión</Text>
     </Pressable>

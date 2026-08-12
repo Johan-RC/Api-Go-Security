@@ -47,8 +47,9 @@ const Tab = createBottomTabNavigator<MainTabParamList>();
 const header = {
   headerStyle: { backgroundColor: colors.surface },
   headerShadowVisible: false,
-  headerTintColor: colors.text,
-  titleStyle: { color: colors.text },
+  headerTintColor: colors.primary,
+  headerTitleStyle: { color: colors.text, fontWeight: '700' as const },
+  headerTitleAlign: 'center' as const,
 } as const;
 
 function AuthNavigator() {
@@ -131,11 +132,22 @@ function MainTabs() {
         headerShown: false,
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.textMuted,
-        tabBarStyle: { backgroundColor: colors.surface },
+        tabBarStyle: {
+          backgroundColor: colors.surface,
+          borderTopColor: colors.border,
+          height: 60,
+          paddingBottom: 6,
+          paddingTop: 6,
+        },
+        tabBarLabelStyle: { fontSize: 11, fontWeight: '600' },
         tabBarIcon: ({ color, focused }) => {
           const icon = tabIcons[route.name as keyof MainTabParamList];
           const name = focused ? icon.active : icon.inactive;
-          return <Feather name={name} size={22} color={color} />;
+          return (
+            <View style={focused ? styles.tabIconActive : null}>
+              <Feather name={name} size={22} color={color} />
+            </View>
+          );
         },
       })}
     >
@@ -170,4 +182,10 @@ export function RootNavigator() {
 
 const styles = StyleSheet.create({
   loading: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.background },
+  tabIconActive: {
+    paddingHorizontal: 14,
+    paddingVertical: 3,
+    borderRadius: 999,
+    backgroundColor: colors.primarySoft,
+  },
 });

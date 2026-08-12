@@ -3,6 +3,7 @@ import { StyleSheet, View, Modal, TouchableOpacity, FlatList, ViewStyle } from '
 import { Feather } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, radius, spacing, shadows } from '@/theme';
+import { pointer } from '@/utils/web';
 import { Text } from '@/components/Text';
 
 export interface SelectOption<T extends string | number> {
@@ -40,7 +41,7 @@ export function Select<T extends string | number>({
         </Text>
       ) : null}
 
-      <TouchableOpacity activeOpacity={0.8} style={[styles.trigger, error ? styles.triggerError : null]} onPress={() => setOpen(true)}>
+      <TouchableOpacity activeOpacity={0.8} style={[styles.trigger, pointer, error ? styles.triggerError : null]} onPress={() => setOpen(true)}>
         <Text variant="body" style={{ color: selected ? colors.text : colors.textMuted }}>
           {selected?.label ?? placeholder}
         </Text>
@@ -68,7 +69,7 @@ export function Select<T extends string | number>({
                 const isSelected = item.value === value;
                 return (
                   <TouchableOpacity
-                    style={[styles.option, isSelected ? styles.optionSelected : null]}
+                    style={[styles.option, pointer, isSelected ? styles.optionSelected : null]}
                     onPress={() => {
                       onChange(item.value);
                       setOpen(false);
@@ -82,7 +83,7 @@ export function Select<T extends string | number>({
                 );
               }}
             />
-            <TouchableOpacity style={styles.cancel} onPress={() => setOpen(false)}>
+            <TouchableOpacity style={[styles.cancel, pointer]} onPress={() => setOpen(false)}>
               <Text variant="label" color="textSecondary">Cancelar</Text>
             </TouchableOpacity>
           </SafeAreaView>

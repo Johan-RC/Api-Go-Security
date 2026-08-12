@@ -12,3 +12,5 @@ export { EmptyState } from '@/components/EmptyState';
 export { Row } from '@/components/Row';
 export { ToastProvider, useToast } from '@/components/Toast';
 export { Spinner } from '@/components/Spinner';
+export { Reveal } from '@/components/Reveal';
+export { ShieldAnimation } from '@/components/ShieldAnimation';

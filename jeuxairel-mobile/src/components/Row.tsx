@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, TouchableOpacity, ViewStyle } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { colors, spacing } from '@/theme';
+import { pointer } from '@/utils/web';
 import { Text } from '@/components/Text';
 
 interface RowProps {
@@ -40,7 +41,7 @@ export function Row({ title, subtitle, description, left, right, onPress, style 
 
   if (onPress) {
     return (
-      <TouchableOpacity activeOpacity={0.7} style={[styles.row, style]} onPress={onPress}>
+      <TouchableOpacity activeOpacity={0.7} style={[styles.row, pointer, style]} onPress={onPress}>
         {content}
       </TouchableOpacity>
     );

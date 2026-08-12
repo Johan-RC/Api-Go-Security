@@ -31,5 +31,5 @@ export function Screen({ children, scroll = true, padded = true, contentContaine
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: colors.background },
-  padding: { padding: spacing.lg },
+  padding: { padding: spacing.lg, maxWidth: 900, width: '100%', alignSelf: 'center' },
 });

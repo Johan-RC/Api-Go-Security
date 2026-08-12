@@ -1,7 +1,8 @@
 import React, { createContext, useCallback, useContext, useRef, useState } from 'react';
 import { StyleSheet, Animated, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import { colors, radius, spacing } from '@/theme';
+import { colors, radius, shadows, spacing } from '@/theme';
+import { nativeDriver } from '@/utils/web';
 import { Text } from '@/components/Text';
 
 type ToastType = 'success' | 'error' | 'info';
@@ -27,6 +28,7 @@ const icons: Record<ToastType, { icon: 'check-circle' | 'alert-circle' | 'info';
 export function ToastProvider({ children }: { children: React.ReactNode }) {
   const [toast, setToast] = useState<ToastState>({ visible: false, type: 'info', message: '' });
   const opacity = useRef(new Animated.Value(0)).current;
+  const translateY = useRef(new Animated.Value(-16)).current;
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const show = useCallback(
@@ -34,15 +36,21 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
       if (timer.current) clearTimeout(timer.current);
       setToast({ visible: true, type, message });
 
-      Animated.timing(opacity, { toValue: 1, duration: 200, useNativeDriver: true }).start();
+      Animated.parallel([
+        Animated.timing(opacity, { toValue: 1, duration: 220, useNativeDriver: nativeDriver }),
+        Animated.spring(translateY, { toValue: 0, speed: 16, bounciness: 6, useNativeDriver: nativeDriver }),
+      ]).start();
 
       timer.current = setTimeout(() => {
-        Animated.timing(opacity, { toValue: 0, duration: 250, useNativeDriver: true }).start(() => {
+        Animated.parallel([
+          Animated.timing(opacity, { toValue: 0, duration: 250, useNativeDriver: nativeDriver }),
+          Animated.timing(translateY, { toValue: -16, duration: 250, useNativeDriver: nativeDriver }),
+        ]).start(() => {
           setToast((prev) => ({ ...prev, visible: false }));
         });
       }, 3200);
     },
-    [opacity],
+    [opacity, translateY],
   );
 
   const palette = icons[toast.type];
@@ -51,7 +59,10 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
     <ToastContext.Provider value={{ show }}>
       {children}
       {toast.visible ? (
-        <Animated.View pointerEvents="none" style={[styles.container, { opacity }]}>
+        <Animated.View
+          pointerEvents="none"
+          style={[styles.container, { opacity, transform: [{ translateY }] }]}
+        >
           <View style={styles.toast}>
             <Feather name={palette.icon} size={20} color={palette.color} />
             <Text variant="body" style={{ color: colors.text, flex: 1 }}>
@@ -93,5 +104,6 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     maxWidth: 480,
     width: '92%',
+    ...shadows.md,
   },
 });

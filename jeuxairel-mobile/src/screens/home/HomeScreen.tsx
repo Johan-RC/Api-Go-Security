@@ -1,11 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons';
-import { Screen, Card, Text, Avatar, Badge } from '@/components';
+import { Screen, Card, Text, Avatar, Badge, Reveal } from '@/components';
 import { useAuth } from '@/contexts/AuthContext';
 import { listUsers, listRoles, listFeatures, listActiveSessions } from '@/api/endpoints';
 import { colors, spacing } from '@/theme';
+import { pointer } from '@/utils/web';
 import { initials } from '@/utils/format';
 import type { HomeStackParamList } from '@/navigation/types';
 
@@ -85,46 +87,66 @@ export function HomeScreen({ navigation }: Props) {
 
   return (
     <Screen scroll>
-      <View style={styles.header}>
-        <Avatar text={initials(user?.email ?? 'U')} />
-        <View style={styles.headerText}>
-          <Text variant="label" color="textSecondary">Bienvenido</Text>
-          <Text variant="h2" numberOfLines={1}>{user?.email ?? 'Usuario'}</Text>
-        </View>
-        <Badge tone={user?.actorType === 'INSTRUCTOR' ? 'info' : user?.actorType === 'LEARNER' ? 'success' : 'primary'} label={actorLabel(user?.actorType)} />
-      </View>
+      <Reveal>
+        <LinearGradient
+          colors={[colors.gradientStart, colors.gradientMid, colors.gradientEnd]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.banner}
+        >
+          <View style={styles.header}>
+            <Avatar text={initials(user?.email ?? 'U')} color="rgba(255,255,255,0.25)" size={48} />
+            <View style={styles.headerText}>
+              <Text variant="label" style={{ color: 'rgba(255,255,255,0.85)' }}>Bienvenido</Text>
+              <Text variant="h2" numberOfLines={1} style={{ color: '#FFFFFF' }}>{user?.email ?? 'Usuario'}</Text>
+            </View>
+            <Badge tone={user?.actorType === 'INSTRUCTOR' ? 'info' : user?.actorType === 'LEARNER' ? 'success' : 'primary'} label={actorLabel(user?.actorType)} />
+          </View>
+        </LinearGradient>
+      </Reveal>
 
       {canViewUsers || canViewRoles || canViewFeatures ? (
-        <View style={styles.statsRow}>
-          {canViewUsers ? <StatCard label="Usuarios" value={stats.users} loading={loading} color={colors.primary} /> : null}
-          {canViewRoles ? <StatCard label="Roles" value={stats.roles} loading={loading} color={colors.info} /> : null}
-          {canViewFeatures ? <StatCard label="Funcionalidades" value={stats.features} loading={loading} color={colors.success} /> : null}
-          <StatCard label="Sesiones activas" value={stats.sessions} loading={loading} color={colors.warning} />
-        </View>
+        <Reveal delay={120}>
+          <View style={styles.statsRow}>
+            {canViewUsers ? <StatCard label="Usuarios" value={stats.users} loading={loading} color={colors.primary} /> : null}
+            {canViewRoles ? <StatCard label="Roles" value={stats.roles} loading={loading} color={colors.info} /> : null}
+            {canViewFeatures ? <StatCard label="Funcionalidades" value={stats.features} loading={loading} color={colors.success} /> : null}
+            <StatCard label="Sesiones activas" value={stats.sessions} loading={loading} color={colors.warning} />
+          </View>
+        </Reveal>
       ) : null}
 
-      <Text variant="h3" style={styles.sectionTitle}>Accesos rápidos</Text>
-      <View style={styles.actionsGrid}>
-        {actions.map((action) => (
-          <TouchableOpacity key={action.id} style={styles.actionCard} onPress={action.onPress}>
-            <View style={[styles.actionIcon, { backgroundColor: action.tint }]}>
-              <Feather name={action.icon} size={20} color="#FFFFFF" />
-            </View>
-            <Text variant="body" bold>{action.label}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
+      <Reveal delay={200}>
+        <Text variant="h3" style={styles.sectionTitle}>Accesos rápidos</Text>
+        <View style={styles.actionsGrid}>
+          {actions.map((action) => (
+            <TouchableOpacity key={action.id} style={[styles.actionCard, pointer]} onPress={action.onPress}>
+              <View style={[styles.actionIcon, { backgroundColor: action.tint }]}>
+                <Feather name={action.icon} size={20} color="#FFFFFF" />
+              </View>
+              <Text variant="body" bold>{action.label}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </Reveal>
 
-      <TouchableOpacity onPress={logout} style={styles.logout}>
-        <Feather name="log-out" size={18} color={colors.danger} />
-        <Text variant="body" color="danger" bold>Cerrar sesión</Text>
-      </TouchableOpacity>
+      <Reveal delay={300}>
+        <TouchableOpacity onPress={logout} style={[styles.logout, pointer]}>
+          <Feather name="log-out" size={18} color={colors.danger} />
+          <Text variant="body" color="danger" bold>Cerrar sesión</Text>
+        </TouchableOpacity>
+      </Reveal>
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  header: { flexDirection: 'row', alignItems: 'center', gap: spacing.md, marginBottom: spacing.xl },
+  banner: {
+    borderRadius: 22,
+    padding: spacing.lg,
+    marginBottom: spacing.xl,
+  },
+  header: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
   headerText: { flex: 1 },
   statsRow: { flexWrap: 'wrap', flexDirection: 'row', gap: spacing.sm, marginBottom: spacing.xl },
   statCard: { flexGrow: 1, flexBasis: '45%', padding: spacing.md },

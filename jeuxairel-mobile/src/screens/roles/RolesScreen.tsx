@@ -10,6 +10,7 @@ import { usePaginatedList } from '@/hooks/usePaginatedList';
 import { listRoles } from '@/api/endpoints';
 import { getErrorMessage } from '@/api/errors';
 import { colors, spacing } from '@/theme';
+import { pointer } from '@/utils/web';
 import type { RoleResponse } from '@/types/models';
 import type { RolesStackParamList } from '@/navigation/types';
 
@@ -73,7 +74,7 @@ export function RolesScreen({ navigation }: Props) {
         }
       />
     {canCreate ? (
-        <Pressable style={styles.fab} onPress={() => navigation.navigate('RoleCreate')}>
+        <Pressable style={[styles.fab, pointer]} onPress={() => navigation.navigate('RoleCreate')}>
           <Feather name="plus" size={22} color="#FFFFFF" />
         </Pressable>
       ) : null}

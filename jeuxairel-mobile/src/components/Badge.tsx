@@ -6,12 +6,12 @@ import { Text } from '@/components/Text';
 export type BadgeTone = 'primary' | 'success' | 'danger' | 'warning' | 'info' | 'neutral';
 
 const tones: Record<BadgeTone, { bg: string; fg: string }> = {
-  primary: { bg: colors.primarySoft, fg: colors.primaryDark },
+  primary: { bg: colors.primarySoft, fg: colors.primaryLight },
   success: { bg: colors.successSoft, fg: colors.successStrong },
   danger: { bg: colors.dangerSoft, fg: colors.dangerStrong },
   warning: { bg: colors.warningSoft, fg: colors.warningStrong },
   info: { bg: colors.infoSoft, fg: colors.infoStrong },
-  neutral: { bg: '#EEF4F0', fg: colors.textSecondary },
+  neutral: { bg: '#1C1C24', fg: colors.textSecondary },
 };
 
 interface BadgeProps {
